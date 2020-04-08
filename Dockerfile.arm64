@@ -1,13 +1,12 @@
 # Server over RUBY
 #
-# VERSION               0.0.6
-
-ENV GOOS=linux \
-    GOARCH=arm64
+# VERSION               0.0.7
 	
 FROM ruby:alpine
 
 MAINTAINER WagoJP <christophe.icard@wago.com>
+
+COPY qemu-aarch64-static /usr/bin/
 
 # update apk
 #RUN apk update \ 

@@ -1,11 +1,7 @@
 # Server over RUBY
 #
-# VERSION               0.0.6
+# VERSION               0.0.7
 
-ENV GOOS=linux \
-    GOARCH=arm \
-    GOARM=7
-	
 FROM ruby:alpine
 
 MAINTAINER WagoJP <christophe.icard@wago.com>
