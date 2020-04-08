@@ -1,6 +1,6 @@
 # Server over RUBY
 #
-# VERSION               0.0.1
+# VERSION               0.0.5
 
 FROM ruby:alpine
 
@@ -44,14 +44,13 @@ RUN gem install -N macaddr \
 	# add faye-websocket, websocket-extensions, websocket-driver
 	&& gem install -N faye-websocket \ 
 	# add sqlite
-	&& gem install -N sqlite \ 
+	&& gem install -N sqlite3 \ 
 	# add zip
 	&& gem install -N zip
-
 
 WORKDIR /usr/src/app
 # User configuration directory volume
 
 EXPOSE 60000
 
-CMD ["./usr/src/app/server.sh"]
+CMD ["ruby", "-C", "/usr/src/app/server", "svm.rb"]
