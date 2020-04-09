@@ -1,0 +1,7 @@
+image: aidasan/test:arm32v7
+manifests:
+  - image: aidasan/test:temp
+    platform:
+      architecture: arm
+      os: linux
+      variant: v7
