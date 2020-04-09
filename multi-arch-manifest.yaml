@@ -1,0 +1,52 @@
+image: aidasan/test:temp
+manifests:
+  - image: aidasan/test:arm32v7
+    platform:
+      architecture: arm
+      os: linux
+      variant: v7
+
+---
+
+image: aidasan/test:arm32v7
+manifests:
+  - image: aidasan/test:temp
+    platform:
+      architecture: arm
+      os: linux
+      variant: v7
+
+---
+
+image: aidasan/test:temp
+manifests:
+  - image: aidasan/test:arm64v8
+    platform:
+      architecture: arm64
+      os: linux
+      variant: v8
+
+---
+
+image: aidasan/test:arm64v8
+manifests:
+  - image: aidasan/test:temp
+    platform:
+      architecture: arm64
+      os: linux
+      variant: v8
+
+---
+
+image: aidasan/test:latest
+manifests:
+  - image: aidasan/test:arm32v7
+    platform:
+      architecture: arm
+      os: linux
+      variant: v7
+  - image: aidasan/test:arm64v8
+    platform:
+      architecture: arm64
+      os: linux
+      variant: v8
