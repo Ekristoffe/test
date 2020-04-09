@@ -1,5 +1,5 @@
 ARG FROM_ARCH=amd64
-ARG FROM_VARIANT=1-alpine
+ARG FROM_VARIANT=2.4-alpine
 
 # Final Docker image
 FROM $FROM_ARCH/ruby:$FROM_VARIANT
