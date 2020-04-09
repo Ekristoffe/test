@@ -1,7 +1,0 @@
-image: aidasan/test:arm64v8
-manifests:
-  - image: aidasan/test:temp
-    platform:
-      architecture: arm64
-      os: linux
-      variant: v8
