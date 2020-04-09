@@ -6,8 +6,4 @@
 curl -Lo manifest-tool https://github.com/estesp/manifest-tool/releases/download/v1.0.2/manifest-tool-linux-amd64
 chmod +x manifest-tool
 
-./manifest-tool push from-spec arm32v7-test-manifest.yaml
-./manifest-tool push from-spec test-arm32v7-manifest.yaml
-./manifest-tool push from-spec arm64v8-test-manifest.yaml
-./manifest-tool push from-spec test-arm64v8-manifest.yaml
 ./manifest-tool push from-spec multi-arch-manifest.yaml
