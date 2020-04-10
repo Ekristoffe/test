@@ -4,7 +4,7 @@ ARG FROM_VARIANT=2.4-alpine
 # Multi-stage build, see https://docs.docker.com/develop/develop-images/multistage-build/
 FROM alpine AS builder
 
-ENV VERSION 0.1.0
+ENV VERSION 0.1.1
 
 # Download QEMU, see https://github.com/ckulka/docker-multi-arch-example
 ADD https://github.com/balena-io/qemu/releases/download/v3.0.0%2Bresin/qemu-3.0.0+resin-arm.tar.gz .
@@ -16,7 +16,7 @@ RUN tar zxvf qemu-3.0.0+resin-aarch64.tar.gz --strip-components 1
 FROM $FROM_ARCH/ruby:$FROM_VARIANT
 
 LABEL description="Ruby server test"
-LABEL version="0.0.9"
+LABEL version="0.1.1"
 LABEL repository="https://github.com/Ekristoffe/test/"
 LABEL website="https://www.ruby-lang.org/en/"
 
@@ -66,12 +66,12 @@ RUN gem install -N macaddr \
 	# add zip
 	&& gem install -N zip
 
-WORKDIR /usr/src/app
+WORKDIR /usr/src/local
 # User configuration directory volume
 
 EXPOSE 60000
 
 # Add a healthcheck (default every 30 secs)
-HEALTHCHECK CMD ["ruby", "-C", "/usr/src/app/server", "healthcheck.rb"]
+HEALTHCHECK CMD ["ruby", "-C", "/usr/src/local/server", "healthcheck.rb"]
 
-CMD ["ruby", "-C", "/usr/src/app/server", "svm.rb"]
+CMD ["ruby", "-C", "/usr/src/local/server", "svm.rb"]
