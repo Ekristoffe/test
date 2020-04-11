@@ -66,12 +66,12 @@ RUN gem install -N macaddr \
 	# add zip
 	&& gem install -N zip
 
-WORKDIR /usr/src/local
+WORKDIR /usr/local/app
 # User configuration directory volume
 
 EXPOSE 60000
 
 # Add a healthcheck (default every 30 secs)
-HEALTHCHECK --interval=60s --timeout=10s --start-period=60s --retries=3 CMD ["ruby", "-C", "/usr/src/local/server", "healthcheck.rb"]
+HEALTHCHECK --interval=60s --timeout=10s --start-period=60s --retries=3 CMD ["ruby", "-C", "/usr/local/app/server", "healthcheck.rb"]
 
-CMD ["ruby", "-C", "/usr/src/local/server", "svm.rb"]
+CMD ["ruby", "-C", "/usr/local/app/server", "svm.rb"]
