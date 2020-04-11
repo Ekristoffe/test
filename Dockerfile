@@ -72,6 +72,6 @@ WORKDIR /usr/src/local
 EXPOSE 60000
 
 # Add a healthcheck (default every 30 secs)
-HEALTHCHECK CMD ["ruby", "-C", "/usr/src/local/server", "healthcheck.rb"]
+HEALTHCHECK --interval=60s --timeout=10s --start-period=60s --retries=3 CMD ["ruby", "-C", "/usr/src/local/server", "healthcheck.rb"]
 
 CMD ["ruby", "-C", "/usr/src/local/server", "svm.rb"]
