@@ -39,7 +39,9 @@ RUN apk upgrade --no-cache \
 	# add sqlite
 	&& apk add --no-cache sqlite \ 
 	# add sqlite-dev, sqlite-libs
-	&& apk add --no-cache sqlite-dev
+	&& apk add --no-cache sqlite-dev \
+	# add tzdata
+	&& apk add --no-cache tzdata
 
 # Clean APK cache
 RUN rm -rf /var/cache/apk/*
@@ -65,6 +67,10 @@ RUN gem install -N macaddr \
 	&& gem install -N sqlite3 \ 
 	# add zip
 	&& gem install -N zip
+
+# Change TimeZone
+ENV TZ=Asia/Tokyo
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 WORKDIR /usr/local/app
 # User configuration directory volume

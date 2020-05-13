@@ -39,7 +39,9 @@ RUN apk upgrade --no-cache \
 	# add sqlite
 	&& apk add --no-cache sqlite \ 
 	# add sqlite-dev, sqlite-libs
-	&& apk add --no-cache sqlite-dev
+	&& apk add --no-cache sqlite-dev \
+	# add tzdata
+	&& apk add --no-cache tzdata
 
 # Clean APK cache
 RUN rm -rf /var/cache/apk/*
