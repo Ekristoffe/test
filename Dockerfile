@@ -1,5 +1,5 @@
 ARG FROM_ARCH=amd64
-ARG FROM_VARIANT=2.7.1-alpine
+ARG FROM_VARIANT=alpine
 
 # Multi-stage build, see https://docs.docker.com/develop/develop-images/multistage-build/
 FROM alpine AS builder
