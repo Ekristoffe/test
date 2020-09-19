@@ -7,10 +7,10 @@ FROM alpine AS builder
 ENV VERSION 0.1.1
 
 # Download QEMU, see https://github.com/ckulka/docker-multi-arch-example
-ADD https://github.com/balena-io/qemu/releases/download/v3.0.0%2Bresin/qemu-3.0.0+resin-arm.tar.gz .
-RUN tar zxvf qemu-3.0.0+resin-arm.tar.gz --strip-components 1
-ADD https://github.com/balena-io/qemu/releases/download/v3.0.0%2Bresin/qemu-3.0.0+resin-aarch64.tar.gz .
-RUN tar zxvf qemu-3.0.0+resin-aarch64.tar.gz --strip-components 1
+ADD https://github.com/balena-io/qemu/releases/download/v4.0.0%2Bbalena2/qemu-4.0.0.balena2-arm.tar.gz .
+RUN tar zxvf qemu-4.0.0.balena2-arm.tar.gz --strip-components 1
+ADD https://github.com/balena-io/qemu/releases/download/v4.0.0%2Bbalena2/qemu-4.0.0.balena2-aarch64.tar.gz .
+RUN tar zxvf qemu-4.0.0.balena2-aarch64.tar.gz --strip-components 1
 
 # Final Docker image
 FROM $FROM_ARCH/ruby:$FROM_VARIANT
