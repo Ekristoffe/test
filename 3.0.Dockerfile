@@ -1,5 +1,5 @@
 ARG FROM_ARCH=amd64
-ARG FROM_VARIANT=alpine
+ARG FROM_VARIANT=3.0-alpine
 
 # Multi-stage build, see https://docs.docker.com/develop/develop-images/multistage-build/
 FROM alpine AS builder
@@ -67,10 +67,6 @@ RUN gem install -N macaddr \
 	&& gem install -N sqlite3 \ 
 	# add zip
 	&& gem install -N zip
-
-# Change TimeZone
-ENV TZ=Asia/Tokyo
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 WORKDIR /usr/local/app
 # User configuration directory volume
