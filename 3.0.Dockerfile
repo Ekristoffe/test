@@ -8,9 +8,9 @@ ENV VERSION 0.1.1
 
 # Download QEMU, see https://github.com/ckulka/docker-multi-arch-example
 ADD https://github.com/balena-io/qemu/releases/download/v5.2.0%2Bbalena4/qemu-5.2.0.balena4-arm.tar.gz .
-RUN tar zxvf qemu-4.0.0.dev.2.jenkins-balena-qemu-21-arm.tar.gz --strip-components 1
+RUN tar zxvf qemu-5.2.0.balena4-arm.tar.gz --strip-components 1
 ADD https://github.com/balena-io/qemu/releases/download/v5.2.0%2Bbalena4/qemu-5.2.0.balena4-aarch64.tar.gz .
-RUN tar zxvf qemu-4.0.0.dev.2.jenkins-balena-qemu-21-aarch64.tar.gz --strip-components 1
+RUN tar zxvf qemu-5.2.0.balena4-aarch64.tar.gz --strip-components 1
 
 # Final Docker image
 FROM $FROM_ARCH/ruby:$FROM_VARIANT
